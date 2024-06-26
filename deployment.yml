@@ -5,7 +5,7 @@ metadata:
   labels:
     app: netflix-app
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: netflix-app
@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: netflix-app
-        image: royaldevops/java-docker:latest
+        image: vicky275/ekart-project
         ports:
-        - containerPort: 8080
+        - containerPort: 8070
 
 ---
 
@@ -32,7 +32,7 @@ spec:
   type: NodePort
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 8070
     nodePort: 30007
   selector:
     app: netflix-app
